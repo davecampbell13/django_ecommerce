@@ -1,0 +1,19 @@
+{% include "header.html" %}
+
+<h2>New User Signup</h2>
+
+<form action="/users/register/" method="post">
+{% csrf_token %}
+    Username:<br>
+    <input type="text" name="username"/>
+    <br /><br>
+    Email:<br>
+    <input type="email" name="email"/>
+    <br /><br>
+    Password:<br>
+    <input type="password" name="password"/>
+    <br />
+    <br>
+    
+<input type="submit" value="Register" />
+</form>

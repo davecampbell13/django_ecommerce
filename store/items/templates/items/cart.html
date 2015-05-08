@@ -1,0 +1,25 @@
+{% include "header.html" %}
+
+<h2>This, my friend, is your cart:</h2>
+<!-- <div class="item-list">
+    <h2>{{ item }} | ${{ item.price }}</h2>
+    <p>{{ item.description }}</p>
+    <a class="cart-link" href="#"><p class="add-to-cart">Add to Cart</p></a>
+</div> -->
+
+{% if items %}
+    {% for item in items %}
+    <div class="item-list">
+        <a href="{% url 'items:show' item.id %}"><h3>{{ item }}</a>  |  ${{ item.price }}</h3>
+        <p>{{ item.description }}</p>
+        <a class="cart-link" href="/items/{{ item.id }}/delete"><p class="remove-to-cart">Remove from Cart</p></a>
+    </div>
+    {% endfor %}
+    <div class="item-list">
+    	<h3>Total: ${{ total }}</h3>
+    	<a class="cart-link" href="/items/payment"><p class="remove-to-cart">Buy It All</p></a>
+    </div>
+{% else %}
+    <p>No items are available.</p>
+{% endif %}
+

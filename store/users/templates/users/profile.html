@@ -1,0 +1,9 @@
+{% include "header.html" %}
+
+<h2>Profile</h2>
+
+<p>Username: {{ user }}</p>
+<p>Email: {{ user.email }}</p>
+<p>Last Login: {{ user.last_login }}</p>
+
+<a href="/users/logout/">Logout</a>

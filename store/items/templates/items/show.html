@@ -1,0 +1,7 @@
+{% include "header.html" %}
+
+<div class="item-list">
+    <h2>{{ item }} | ${{ item.price }}</h2>
+    <p>{{ item.description }}</p>
+    <a class="cart-link" href="/items/{{ item.id }}/add"><p class="add-to-cart">Add to Cart</p></a>
+</div>

@@ -1,0 +1,33 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'users/style.css' %}" />
+
+ <script type="text/javascript">
+    function updateTextInput(val) {
+      document.getElementById('textInput').value=val; 
+    }
+  </script>
+
+<div class="title">
+	<h1><a href="/items">Dave's Store of Oddities and Intrigues</a></h1>
+</div>
+
+<div id="navigation">
+	<ul style="list-style: none;">
+		<li><a href="/items">Shop</a></li>
+		{% if user.is_authenticated %}
+    	<li><a href="/users/logout">Logout</a></li>
+		{% else %}
+		<li><a href="/users/signup">Signup</a></li>
+    	<li><a href="/users/log_in">Login</a></li>
+		{% endif %}
+		<li style="padding: 10px"><div>
+	<form style="margin: 0px; padding: 0px;" action="/items/" method="get">
+	    <input type="search" name="search" placeholder="Search"/>
+	    <input type="submit" value="Search" />
+	</form>
+</div></li>
+	</ul>
+</div>
+
+<hr>

@@ -1,0 +1,41 @@
+{% include "header.html" %}
+
+<h2>Items. Lots of items.</h2>
+
+<div>
+<form style="margin: 0px; padding: 0px;" action="/items/" method="get">
+    $0
+    <input type="range" name="price" min="0" max="2000" step="10" value="{{ search_price }}" onchange="updateTextInput(this.value);">
+    $2000
+    $<input type="text" id="textInput" value="{{ search_price }}">
+    <input type="submit" value="Filter By Price" />
+</form>
+</div>
+
+{% if items_list %}
+    {% for item in items_list %}
+    <div class="item-list">
+        <a href="{% url 'items:show' item.id %}"><h3>{{ item }}</a>  |  ${{ item.price }}</h3>
+        <p>{{ item.description }}</p>
+        <a class="cart-link" href="/items/{{ item.id }}/add"><p class="add-to-cart">Add to Cart</p></a>
+    </div>
+    {% endfor %}
+{% else %}
+    <p>No items are available.</p>
+{% endif %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if items_list.has_previous %}
+            <a href="?page={{ contacts.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ items_list.number }} of {{ items_list.paginator.num_pages }}.
+        </span>
+
+        {% if items_list.has_next %}
+            <a href="?page={{ items_list.next_page_number }}">Next</a>
+        {% endif %}
+    </span>
+</div>
