@@ -2,7 +2,8 @@
 
 Built eCommerce site as part of GoCode Spring 2015.
 
-User Stories - Overview
+#User Stories - Overview
+
 1) Authentication: User can signup/login/logout
 
 2) Items for sale: User can view lists of items for sale and search by name, filter by price.
